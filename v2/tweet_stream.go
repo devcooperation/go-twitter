@@ -353,6 +353,7 @@ func (ts *TweetStream) handleTweet(decoder *json.Decoder) {
 	raw.Tweets = make([]*TweetObj, 1)
 	raw.Tweets[0] = single.Tweet
 	raw.Includes = single.Includes
+	raw.MatchingRules = single.MatchingRules
 	raw.Errors = single.Errors
 
 	tweetMsg := &TweetMessage{
