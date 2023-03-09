@@ -8,6 +8,20 @@ type EntitiesObj struct {
 	Mentions    []EntityMentionObj    `json:"mentions"`
 	CashTags    []EntityTagObj        `json:"cashtags"`
 }
+type UserEntitiesObj struct {
+	Description *UserDescriptionObj `json:"description"`
+	URL         *UserURLObj         `json:"url"`
+}
+
+type UserURLObj struct {
+	URLs []EntityURLObj `json:"urls"`
+}
+
+type UserDescriptionObj struct {
+	HashTags []EntityTagObj     `json:"hashtags"`
+	Mentions []EntityMentionObj `json:"mentions"`
+	CashTags []EntityTagObj     `json:"cashtags"`
+}
 
 // EntityObj contains the start and end positions of the text
 type EntityObj struct {
