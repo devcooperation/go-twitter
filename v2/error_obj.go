@@ -32,6 +32,7 @@ func (h HTTPError) Error() string {
 
 // ErrorObj is part of the partial errors in the response
 type ErrorObj struct {
+	Id           string      `json:"Id"`
 	Title        string      `json:"title"`
 	Detail       string      `json:"detail"`
 	Type         string      `json:"type"`
