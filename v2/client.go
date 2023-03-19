@@ -307,8 +307,10 @@ func (c *Client) UserLookup(ctx context.Context, ids []string, opts UserLookupOp
 				RateLimit: rl,
 			}
 		}
-		raw.Users = make([]*UserObj, 1)
-		raw.Users[0] = single.User
+		if single.User != nil {
+			raw.Users = make([]*UserObj, 1)
+			raw.Users[0] = single.User
+		}
 		raw.Includes = single.Includes
 		raw.Errors = single.Errors
 	default:
@@ -451,8 +453,10 @@ func (c *Client) UserNameLookup(ctx context.Context, usernames []string, opts Us
 				RateLimit: rl,
 			}
 		}
-		raw.Users = make([]*UserObj, 1)
-		raw.Users[0] = single.User
+		if single.User != nil {
+			raw.Users = make([]*UserObj, 1)
+			raw.Users[0] = single.User
+		}
 		raw.Includes = single.Includes
 		raw.Errors = single.Errors
 	default:
@@ -516,8 +520,10 @@ func (c *Client) AuthUserLookup(ctx context.Context, opts UserLookupOpts) (*User
 		}
 	}
 	raw := &UserRaw{}
-	raw.Users = make([]*UserObj, 1)
-	raw.Users[0] = single.User
+	if single.User != nil {
+		raw.Users = make([]*UserObj, 1)
+		raw.Users[0] = single.User
+	}
 	raw.Includes = single.Includes
 	raw.Errors = single.Errors
 
